@@ -1,8 +1,9 @@
 <template>
-    <section class="container" > <!--最外层容器-->
+    <section class="container" :class="{'menu-open': menuOpen}" > <!--最外层容器-->
     <section class="menu"> <!--左边的容器-->
       <menus></menus>
     </section>
+      <div class="content-overlay" @click="$store.dispatch('updateMenu')"></div>
     <section class="content-container"><!--右边的容器-->
     <todo></todo>
     </section>
@@ -16,6 +17,12 @@
     components:{
       menus,
       todo
+    },
+    computed:{
+      menuOpen(){
+        return this.$store.state.menuOpen;
+      }
+
     }
     }
 </script>
