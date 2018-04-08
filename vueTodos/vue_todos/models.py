@@ -24,12 +24,13 @@ class Items(models.Model):
     isDelete: Boolean, // 是否删除(物理删除)
     checked: Boolean // 是否完成
     '''
+    todo = models.ForeignKey(Todos,verbose_name=u'待办事项')
     text = models.CharField(verbose_name=u'文字内容',max_length=100)
     isdelete = models.BooleanField(verbose_name=u'是否删除')
     locked = models.BooleanField(verbose_name=u'是否锁定')
 
     def __str__(self):
-        return self.titie
+        return self.text
 
     class Meta:
         verbose_name = u'待办单项'
